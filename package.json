@@ -3,6 +3,11 @@
   "displayName": "swagger2ts",
   "description": "",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FourLeafClover/vscode-extensions-swagger2ts"
+  },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.86.0"
   },
@@ -39,8 +44,6 @@
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
     "@types/vscode": "^1.86.0",
-    "@typescript-eslint/eslint-plugin": "^6.19.1",
-    "@typescript-eslint/parser": "^6.19.1",
     "@vscode/test-cli": "^0.0.4",
     "@vscode/test-electron": "^2.3.9",
     "eslint": "^8.56.0",
@@ -50,3 +53,5 @@
     "lodash-unified": "^1.0.3"
   }
 }
+
+

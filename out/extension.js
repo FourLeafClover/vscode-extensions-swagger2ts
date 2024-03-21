@@ -27,6 +27,7 @@ exports.deactivate = exports.activate = void 0;
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = __importStar(require("vscode"));
+const os = require('os');
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 function activate(context) {
@@ -71,14 +72,13 @@ function activate(context) {
                 let curLine = (index % 2 === 0 ? lines[index + 1] : lines[index - 1]).trim();
                 const replaceItem = replaceMap.find((x) => curLine.endsWith(x.origin));
                 if (replaceItem) {
-                    curLine = curLine.replace(replaceItem.origin, replaceItem.replace);
+                    curLine = curLine.replace(replaceItem.origin, replaceItem.replace) + os.EOL;
                 }
                 else {
                     return `/** ${curLine} */`;
                 }
                 return curLine;
-            })
-                .join("\n\n");
+            }).join(os.EOL);
             e.edit(async (editBuilder) => {
                 editBuilder.replace(new vscode.Range(new vscode.Position(e.selection.start.line, e.selection.start.character), new vscode.Position(e.selection.end.line, e.selection.end.character)), newText);
             });
