@@ -18,7 +18,6 @@ export function activate(context: vscode.ExtensionContext) {
       // Display a message box to the user
       const activeText = e.document.getText(e.selection);
       if (activeText) {
-        console.log(activeText.split("\n"));
         let lines = activeText.split("\n").filter((x) => x.trim());
         const replaceMap: {
           origin: string;
